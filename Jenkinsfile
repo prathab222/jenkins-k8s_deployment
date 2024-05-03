@@ -7,7 +7,7 @@ pipeline {
   stages {
     stage('Checkout Source') {
       steps {
-        git 'https://github.com/prathab222/jenkins-k8s_deployment.git'
+         git branch: 'main',credentialsId: 'github_credentials', url: 'https://github.com/prathab222/jenkins-k8s_deployment.git'
       }
     }
     stage('Build image') {
