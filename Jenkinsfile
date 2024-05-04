@@ -13,7 +13,7 @@ pipeline {
     stage('Build image') {
       steps{
         script {
-          dockerImage = docker.build('dockerimagename', '-f Dockerfile .')
+          dockerImage = docker.build(dockerimagename, '-f Dockerfile .')
         }
       }
     }
@@ -23,7 +23,7 @@ pipeline {
            }
       steps{
         script {
-          docker.withRegistry( 'https://registry.hub.docker.com', registryCredential ) {
+          docker.withRegistry( '', registryCredential ) {
             dockerImage.push("latest")
           }
         }
