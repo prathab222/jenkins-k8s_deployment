@@ -13,7 +13,7 @@ pipeline {
     stage('Build image') {
       steps{
         script {
-          dockerImage = docker.build('my-Reactimage:latest', '-f Dockerfile .')
+          dockerImage = docker.build('myreactimage:latest', '-f Dockerfile .')
         }
       }
     }
