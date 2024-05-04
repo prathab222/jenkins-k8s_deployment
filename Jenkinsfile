@@ -1,6 +1,6 @@
 pipeline {
   environment {
-    dockerimagename = "bravinwasike/react-app"
+    dockerimagename = "prathaban1994/myreactapp:tagname"
     dockerImage = ""
   }
   agent any
@@ -13,7 +13,7 @@ pipeline {
     stage('Build image') {
       steps{
         script {
-          dockerImage = docker.build('myreactimage:latest', '-f Dockerfile .')
+          dockerImage = docker.build('dockerimagename', '-f Dockerfile .')
         }
       }
     }
