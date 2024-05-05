@@ -28,13 +28,13 @@ pipeline {
             dockerImage.push("latest")
           }
         }
-        stage('Deploy to Kubernetes') {
-            steps {
-                script {
-                    sh "kubectl --kubeconfig=$KUBE_CONFIG apply -f deployment.yaml"
-                    sh "kubectl --kubeconfig=$KUBE_CONFIG apply -f service.yaml"
-                }
-            }
+      }
+    }
+    stage('Deploying React.js container to Kubernetes') {
+      steps {
+        script {
+          sh "kubectl --kubeconfig=$KUBE_CONFIG apply -f deployment.yaml"
+          sh "kubectl --kubeconfig=$KUBE_CONFIG apply -f service.yaml"
         }
       }
     }
